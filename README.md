@@ -2,6 +2,11 @@
 
 really, don't.
 
+```toml
+[dependencies]
+simple-std = "0.1.0"
+```
+
 simple-std is a little extension to the standard library, 
 providing additional helpers for getting input or creating random numbers.
 
