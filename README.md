@@ -1,5 +1,7 @@
 # note: this is for practicing rust only, do not use this in actual production programs!
 
+really, don't.
+
 simple-std is a little extension to the standard library, 
 providing additional helpers for getting input or creating random numbers.
 

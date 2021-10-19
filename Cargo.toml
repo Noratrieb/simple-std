@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2018"
 description = "A simple extension to the Rust standard library for exercises"
 keywords = ["beginner", "help"]
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+license = "MIT"
+homepage = "https://github.com/Nilstrieb/simple-std/"
+repository = "https://github.com/Nilstrieb/simple-std/"
