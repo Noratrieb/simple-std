@@ -42,7 +42,7 @@ fn main() {
         let input = prompt("Guess: ").parse::<i32>().expect("not a number");
         match input.cmp(&number) {
             Ordering::Less => println!("Too Small"),
-            Ordering::Greater => println("Too Big"),
+            Ordering::Greater => println!("Too Big"),
             Ordering::Equal => {
                 println!("You win!");
                 break;
