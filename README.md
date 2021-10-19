@@ -33,19 +33,20 @@ fn main() {
 Guessing game
 
 ```rust
+use std::cmp::Ordering;
 use simple_std::{prompt, random_int_range}; 
 
 fn main() {
     let number = random_int_range(0..100);
     loop {
         let input = prompt("Guess: ").parse::<i32>().expect("not a number");
-        if input < number {
-            println!("Higher");
-        } else if input > number {
-            println!("Lower");
-        } else {
-            println!("Correct!");
-            break;
+        match input.cmp(&number) {
+            Ordering::Less => println!("Too Small"),
+            Ordering::Greater => println("Too Big"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
         }
     }
 }

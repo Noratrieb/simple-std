@@ -1,6 +1,7 @@
 //!
 //! # Example: guessing game
 //! ```
+//! use std::cmp::Ordering;
 //! use simple_std::{prompt, random_int_range};
 //!
 //! let number = random_int_range(0..100);
@@ -10,16 +11,17 @@
 //!#         random_int_range(0..100).to_string()
 //!#    }
 //!     let input = prompt("guess: ").parse::<i32>().expect("not a number");
-//!     if input < number {
-//!         println!("Higher");
-//!     } else if input > number {
-//!         println!("Lower");
-//!     } else {
-//!         println!("Correct!");
-//!         break;
+//!     match input.cmp(&number) {
+//!         Ordering::Less => println!("Too Small"),
+//!         Ordering::Greater => println!("Too Big"),
+//!         Ordering::Equal => {
+//!             println!("You win!");
+//!             break;
+//!         }
 //!     }
 //! }
 //! ```
+
 
 pub use io::{input, prompt};
 pub use random::{random_float, random_int_range};
