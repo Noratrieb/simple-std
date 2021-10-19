@@ -33,6 +33,7 @@ fn main() {
 Guessing game
 
 ```rust
+use std::cmp::Ordering;
 use simple_std::{prompt, random_int_range}; 
 
 fn main() {
