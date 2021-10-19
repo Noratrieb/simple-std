@@ -2,23 +2,26 @@
 //! # Example: guessing game
 //! ```
 //! use std::cmp::Ordering;
-// use simple_std::{prompt, random_int_range};
-//
-// fn main() {
-//     let number = random_int_range(0..100);
-//     loop {
-//         let input = prompt("Guess: ").parse::<i32>().expect("not a number");
-//         match input.cmp(&number) {
-//             Ordering::Less => println!("Too Small"),
-//             Ordering::Greater => println!("Too Big"),
-//             Ordering::Equal => {
-//                 println!("You win!");
-//                 break;
-//             }
-//         }
-//     }
-// }
+//! use simple_std::{prompt, random_int_range};
+//!
+//! let number = random_int_range(0..100);
+//! loop {
+//!#    // hack the input function for this to work in the doc test    
+//!#    fn prompt(_str: &str) -> String {
+//!#         random_int_range(0..100).to_string()
+//!#    }
+//!     let input = prompt("guess: ").parse::<i32>().expect("not a number");
+//!     match input.cmp(&number) {
+//!         Ordering::Less => println!("Too Small"),
+//!         Ordering::Greater => println!("Too Big"),
+//!         Ordering::Equal => {
+//!             println!("You win!");
+//!             break;
+//!         }
+//!     }
+//! }
 //! ```
+
 
 pub use io::{input, prompt};
 pub use random::{random_float, random_int_range};
