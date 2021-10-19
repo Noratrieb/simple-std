@@ -1,6 +1,6 @@
 [package]
 name = "simple-std"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2018"
 description = "A simple extension to the Rust standard library for exercises"
 keywords = ["beginner", "help"]

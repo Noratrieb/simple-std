@@ -4,7 +4,7 @@ really, don't.
 
 ```toml
 [dependencies]
-simple-std = "0.1.0"
+simple-std = "0.1.1"
 ```
 
 simple-std is a little extension to the standard library, 
@@ -33,12 +33,12 @@ fn main() {
 Guessing game
 
 ```rust
-use simple_std::{input, random_int_range}; 
+use simple_std::{prompt, random_int_range}; 
 
 fn main() {
     let number = random_int_range(0..100);
     loop {
-        let input = input().parse::<i32>().expect("not a number");
+        let input = prompt("Guess: ").parse::<i32>().expect("not a number");
         if input < number {
             println!("Higher");
         } else if input > number {

@@ -1,29 +1,27 @@
 //!
 //! # Example: guessing game
 //! ```
-//! use simple_std::{input, random_int_range};
+//! use simple_std::{prompt, random_int_range};
 //!
-//! fn main() {
-//!     let number = random_int_range(0..100);
-//!     loop {
-//!#        // hack the input function for this to work in the doc test    
-//!#        fn input() -> String {
-//!#             random_int_range(0..100).to_string()
-//!#        }
-//!         let input = input().parse::<i32>().expect("not a number");
-//!         if input < number {
-//!             println!("Higher");
-//!         } else if input > number {
-//!             println!("Lower");
-//!         } else {
-//!             println!("Correct!");
-//!             break;
-//!         }
+//! let number = random_int_range(0..100);
+//! loop {
+//!#    // hack the input function for this to work in the doc test    
+//!#    fn prompt(_str: &str) -> String {
+//!#         random_int_range(0..100).to_string()
+//!#    }
+//!     let input = prompt("guess: ").parse::<i32>().expect("not a number");
+//!     if input < number {
+//!         println!("Higher");
+//!     } else if input > number {
+//!         println!("Lower");
+//!     } else {
+//!         println!("Correct!");
+//!         break;
 //!     }
 //! }
 //! ```
 
-pub use io::input;
+pub use io::{input, prompt};
 pub use random::{random_float, random_int_range};
 
 mod io {
@@ -47,6 +45,28 @@ mod io {
         let mut buffer = String::new();
         std::io::stdin().read_line(&mut buffer).unwrap();
         buffer
+    }
+
+    ///
+    /// Reads a single line of input, while providing a message that comes on the same line.
+    ///
+    /// # Example
+    /// ```
+    /// use simple_std::prompt;
+    ///
+    /// let name = prompt("Your name: ");
+    /// println!("Hello {}!", name)
+    /// ```
+    ///
+    /// # Why is this not in std?
+    ///
+    /// see [`input`]
+    pub fn prompt(message: &str) -> String {
+        use std::io::Write;
+
+        print!("{}", message);
+        std::io::stdout().flush().unwrap();
+        input()
     }
 }
 
