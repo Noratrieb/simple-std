@@ -92,9 +92,9 @@ mod random {
     ///
     /// # Why is this not in std?
     ///
-    /// Rust aims to be correct, that's why it's major random number library is cryptographically secure,
-    /// meaning it's randomness can't easily be guessed. And cryptographically secure random number generation
-    /// is a big task, that's why it has it's own crate.
+    /// Rust aims to be correct, that's why its major random number library is cryptographically secure,
+    /// meaning its randomness can't easily be guessed. And cryptographically secure random number generation
+    /// is a big task, that's why it has its own crate.
     pub fn random_float() -> f64 {
         ((random_u64() >> 11) as f64) / ((1u64 << 53) as f64)
     }
@@ -123,7 +123,7 @@ mod random {
         range.start + ((random_u64() as i32).abs() % difference)
     }
 
-    /// generates a pseudo-random u32
+    /// generates a pseudo-random u64
     fn random_u64() -> u64 {
         use std::sync::atomic::{AtomicU64, Ordering};
 
